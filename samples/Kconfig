@@ -6,12 +6,6 @@ menuconfig SAMPLES
 
 if SAMPLES
 
-config SAMPLE_RERANDOMIZABLE_LKM
-	tristate "Build rerandomizable kernel module example -- loadable only"
-	depends on ARM64_RANDOM_MODULE && m
-	help
-	  This builds rerandomizable loadable kernel example module.
-
 config SAMPLE_AUXDISPLAY
 	bool "auxdisplay sample"
 	depends on CC_CAN_LINK

@@ -348,10 +348,6 @@ source "arch/arm64/Kconfig.platforms"
 
 menu "Kernel Features"
 
-config ARM64_RANDOM_MODULE
-	tristate "Randomize kernel module support."
-	default m
-
 menu "ARM errata workarounds via the alternatives framework"
 
 config ARM64_WORKAROUND_CLEAN_CACHE
