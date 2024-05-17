@@ -192,7 +192,10 @@ alternative_else_nop_endif
 	stp	x24, x25, [sp, #16 * 12]
 	stp	x26, x27, [sp, #16 * 13]
 	stp	x28, x29, [sp, #16 * 14]
-
+	// mrs x0, DBGWVR0_EL1
+	// mrs x1, DBGWCR0_EL1
+	// str	x0, [sp, #S_xx]
+	// str x1, [sp, #S_yy]
 	.if	\el == 0
 	clear_gp_regs
 	mrs	x21, sp_el0
@@ -332,6 +335,10 @@ alternative_else_nop_endif
 
 	msr	elr_el1, x21			// set up the return data
 	msr	spsr_el1, x22
+	// ldr x0, [sp, #S_xx]
+	// ldr x1, [sp, #S_yy]
+	// msr DBGWVR0_EL1, x0
+	// msr DBGWCR0_EL1, x1
 	ldp	x0, x1, [sp, #16 * 0]
 	ldp	x2, x3, [sp, #16 * 1]
 	ldp	x4, x5, [sp, #16 * 2]
